@@ -1,0 +1,83 @@
+.form-container {
+  background: white;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-container select,
+.form-container input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+}
+
+.success-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #c8e6c9;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* Doctor grid */
+.doctor-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.doctor-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+/* Schedule table */
+.schedule-table {
+  width: 80%;
+  margin: 40px auto;
+  border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #90caf9;
+  padding: 10px;
+  text-align: center;
+}
+
+.available {
+  background-color: #c8e6c9;
+}
+
+.not-available {
+  background-color: #ffcdd2;
+}

@@ -1,0 +1,121 @@
+/* Page base styling */
+.our-doctors-page {
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff, #00c3ff);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Doctors Grid */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* Doctor Card */
+.doctor-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform: translateY(0);
+  position: relative;
+}
+
+.doctor-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image hover animation */
+.doctor-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.doctor-card:hover .doctor-photo {
+  transform: scale(1.1);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Gradient overlay animation */
+.doctor-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(0,123,255,0.3), rgba(0,195,255,0.3));
+  transition: all 0.5s ease;
+}
+
+.doctor-card:hover::before {
+  left: 0;
+}
+
+/* Doctor info */
+.doctor-info {
+  padding: 25px 20px 35px;
+}
+
+.doctor-info h2 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #007bff;
+}
+
+.doctor-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.doctor-bio {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.doctor-tagline {
+  font-size: 1rem;
+  color: #00aaff;
+  font-style: italic;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.doctor-card:hover .doctor-tagline {
+  color: #007bff;
+  text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+}

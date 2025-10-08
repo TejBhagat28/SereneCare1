@@ -1,0 +1,163 @@
+/* Full page layout */
+.firstpage {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff, #f3f4f6); /* white to gray */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.firstpage-left,
+.firstpage-right {
+  min-height: 100vh;
+}
+
+/* Left side with image */
+.firstpage-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e1ebfc;
+}
+
+.firstpage-img {
+  width: 90%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Right side with text and buttons */
+.firstpage-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.firstpage-title {
+  font-size: 2.5rem;
+  color: #1e3a8a; /* dark blue */
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Login box with buttons */
+.login-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #3b82f6; /* blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #1e3a8a; /* darker blue */
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+  .firstpage {
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .firstpage-title {
+    font-size: 2rem;
+  }
+
+  .firstpage-img {
+    width: 80%;
+  }
+
+  .firstpage-right {
+    padding: 30px 20px;
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in to the whole page */
+.firstpage {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Smooth transition for all elements inside */
+.firstpage * {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect on left image */
+.firstpage-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect on the right panel */
+.firstpage-right:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Button hover is already there but adding slight scale effect */
+.login-btn:hover {
+  background-color: #1e3a8a; /* darker blue */
+  transform: scale(1.05);
+}
+
+/* Smooth fade-in for each login box element */
+.login-box > * {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.login-box > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.login-box > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.login-box > *:nth-child(3) {
+  animation-delay: 0.6s;
+}

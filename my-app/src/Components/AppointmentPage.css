@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f0ff, #c0d8ff);
+  height: 100vh;
+  width: 100%;
+}
+
+.appointment-page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: #f9fbff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.appointment-page:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.appointment-page h1 {
+  text-align: center;
+  color: #0077cc;
+  margin-bottom: 25px;
+  font-size: 28px;
+  position: relative;
+}
+
+.success-msg {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-form label {
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.appointment-form input,
+.appointment-form select,
+.appointment-form textarea {
+  padding: 12px 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus,
+.appointment-form textarea:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 8px rgba(0, 119, 204, 0.3);
+}
+
+.appointment-form textarea {
+  resize: none;
+  height: 90px;
+}
+
+.appointment-form button {
+  padding: 14px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 119, 204, 0.3);
+}
+
+.appointment-form button:hover:not(:disabled) {
+  background: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 95, 163, 0.4);
+}
+
+.appointment-form button:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0, 95, 163, 0.3);
+}
+
+.appointment-form button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.search-input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 15px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 8px rgba(0, 119, 204, 0.3);
+}
+body {
+  animation: bgShift 10s ease infinite alternate;
+}

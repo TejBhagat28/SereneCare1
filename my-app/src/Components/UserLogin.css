@@ -1,0 +1,204 @@
+.user-login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);
+  animation: fadeIn 1s ease-in-out;
+  font-family: Arial, sans-serif;
+}
+
+.user-login-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 350px;
+  transition: transform 0.3s ease;
+}
+
+.user-login-box:hover {
+  transform: scale(1.02);
+}
+
+.user-login-box h2 {
+  margin-bottom: 20px;
+  color: #0056b3;
+  font-size: 24px;
+}
+
+.user-login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-login-box input {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.user-login-box input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.3);
+}
+
+.user-login-box button {
+  background: #0056b3;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.user-login-box button:hover {
+  background: #003f80;
+  transform: translateY(-2px);
+}
+
+.toggle-text {
+  margin-top: 15px;
+  color: #0073e6;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-text:hover {
+  color: #003f80;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Split screen container */
+.user-login-split {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left side with light blue gradient + centered image */
+.user-login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #e1ebfc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-login-image {
+  max-width: 70%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.user-login-image:hover {
+  transform: scale(1.05);
+}
+
+/* Right side with form centered */
+.user-login-right {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional fade-in animation for the form */
+.user-login-form {
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Ensure split screen fills full width and height */
+.user-login-split {
+  display: flex;
+  height: 100vh; /* Full screen height */
+  width: 100vw; /* Full screen width */
+}
+
+/* Left and right portions take full height */
+.user-login-left,
+.user-login-right {
+  min-height: 100vh;
+}
+
+/* Ensure no gaps between halves */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix button spacing and hover animation */
+.user-login-box button {
+  background: #0056b3;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px; /* Adds gap between stacked buttons */
+  transition: all 0.3s ease;
+}
+
+/* Second button (e.g., Back / Register) slightly separated */
+.user-login-box button:last-child {
+  margin-top: 14px; /* Extra space below the first */
+  background: #0073e6;
+}
+
+.user-login-box button:hover {
+  background: #003f80;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+}
+
+.user-login-box button:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,185 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f8faff;
+}
+
+/* Left Side - Image Centered */
+.admin-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6f0ff;
+}
+
+.admin-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.admin-image:hover {
+  transform: scale(1.03);
+}
+
+/* Right Side - Login Form */
+.admin-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 40px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.admin-title {
+  color: #004aad;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Form Styling */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 350px;
+  background-color: #f8faff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Inputs */
+.admin-form input {
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.admin-form input:focus {
+  border-color: #004aad;
+  box-shadow: 0 0 8px rgba(0, 74, 173, 0.3);
+}
+
+/* Button */
+.admin-form button {
+  background-color: #004aad;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.admin-form button:hover {
+  background-color: #00327a;
+  transform: translateY(-2px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Smooth transition for all elements inside the admin page */
+.admin-container * {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Page fade-in animation */
+.admin-container {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Hover effect on right panel */
+.admin-right:hover {
+  transform: translateY(-3px);
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Staggered fade-in for form elements */
+.admin-form > * {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.admin-form > *:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.admin-form > *:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.admin-form > *:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.admin-form > *:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Optional: Subtle background animation on left side */
+@keyframes subtleShift {
+  0% {
+    background-color: #e6f0ff;
+  }
+  50% {
+    background-color: #dceaff;
+  }
+  100% {
+    background-color: #e6f0ff;
+  }
+}
+
+.admin-left {
+  animation: subtleShift 6s ease-in-out infinite;
+}
+/* Buttons - spacing + hover animations */
+.admin-form button {
+  background-color: #004aad;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 10px; /* adds space between stacked buttons */
+}
+
+/* Add a little more space specifically for Back button */
+.admin-form button:last-child {
+  margin-top: 14px;
+  background-color: #005ce6;
+}
+
+/* Hover animation */
+.admin-form button:hover {
+  background-color: #00327a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 74, 173, 0.3);
+}
+
+/* Add subtle scale when clicked */
+.admin-form button:active {
+  transform: scale(0.98);
+}
