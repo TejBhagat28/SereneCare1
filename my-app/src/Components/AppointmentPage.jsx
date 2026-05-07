@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // <-- import useNavigate
 import doctorsData from "./doctorsData";
 import "./AppointmentPage.css";
 
 function AppointmentPage() {
   const { id } = useParams();
+  const navigate = useNavigate(); // <-- initialize navigate
   const selectedDoctor = doctorsData.find((doc) => doc.id === Number(id));
 
   const [formData, setFormData] = useState({
@@ -22,24 +23,40 @@ function AppointmentPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Show only available times for the selected date
   const availableTimes = formData.date
     ? selectedDoctor?.schedule[formData.date] || []
     : [];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Appointment Data:", formData);
 
-    setSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      doctor: selectedDoctor.name,
-      date: "",
-      time: "",
-      reason: "",
-    });
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          doctor: selectedDoctor.name,
+          date: "",
+          time: "",
+          reason: "",
+        });
+        console.log("Appointment saved with ID:", data.id);
+      } else {
+        alert(data.message || "Failed to book appointment.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Could not connect to server. Try again later.");
+    }
   };
 
   return (
@@ -114,6 +131,13 @@ function AppointmentPage() {
         >
           Confirm Booking
         </button>
+         {/* Back Button */}
+      <button
+        className="back-button"
+        onClick={() => navigate("/main-page")}
+      >
+         Back 
+      </button>
       </form>
     </div>
   );

@@ -5,13 +5,14 @@ import AdminLogin from "./Components/AdminLogin";
 import UserLogin from "./Components/UserLogin";
 import MainPage from "./Components/MainPage";
 import AdminPage from "./Components/AdminPage";
+import AppointmentsPage from "./Components/AppointmentsPage";
 import Doctors from "./Components/Doctors";
 import DoctorCard from "./Components/DoctorCard";
 import AppointmentPage from "./Components/AppointmentPage";
 import AboutUs from "./Components/AboutUs";
 import Contact from "./Components/Contact";
 import ViewSchedulePage from "./Components/ViewSchedulePage";
-// import OurDoctors from "./Components/OurDoctors";
+import OurDoctors from "./Components/OurDoctors";
 
 
 
@@ -25,9 +26,10 @@ function App() {
         <Route path="/user-login" element={<UserLogin />} />
         <Route path="/main-page" element={<MainPage />} />
         <Route path="/admin-page" element={<AdminPage />} />
+        <Route path="/appointments" element={<AppointmentsPage />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctor-card" element={<DoctorCard />} />
-        {/* <Route path="/our-doctors" element={<OurDoctors />} /> */}
+        <Route path="/our-doctors" element={<OurDoctors />} />
         <Route path="/appointment/:id" element={<AppointmentPage />} />
         <Route path="/view-schedule" element={<ViewSchedulePage />} />
         <Route path="/about" element={<AboutUs />} />

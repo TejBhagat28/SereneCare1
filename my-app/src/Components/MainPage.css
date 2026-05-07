@@ -11,39 +11,55 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1e3a8a; /* Dark professional blue */
-  padding: 15px 30px;
+  background: #1e3a8a;
+  padding: 15px 40px;
   color: white;
   animation: slideDown 1s ease-in-out;
+  position: relative;
 }
 
+/* Logo (left) */
 .logo {
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .logo:hover {
   transform: scale(1.1);
 }
 
+/* Center Nav Links */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links li {
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .nav-links li:hover {
-  color: #fbbf24; /* Warm gold hover */
+  color: #fbbf24;
   transform: translateY(-3px);
 }
 
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.nav-link:hover {
+  color: #f59e0b;
+  transform: translateY(-2px);
+}
 /* Hero Section */
 .hero {
   text-align: center;
@@ -199,4 +215,71 @@ body {
 }
 .footer strong {
   color: #ffeb3b;
+}
+/* Force hero heading to white */
+.hero h1 {
+  color: #ffffff;
+}
+
+
+/* 🌟 User Greeting & Logout Button */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 6px 16px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: auto; /* pushes user-info to the right end of navbar */
+}
+
+.user-info:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.user-info span {
+  color: #facc15; /* Gold color */
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  animation: fadeInUser 0.8s ease;
+}
+
+/* 🚪 Logout Button */
+.logout-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.logout-btn:active {
+  transform: scale(0.96);
+}
+
+/* ✨ Animation for the greeting text */
+@keyframes fadeInUser {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

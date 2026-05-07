@@ -1,78 +1,26 @@
-// import React from "react";
-// import "./MainPage.css";
-// import { Link } from "react-router-dom";
-
-// function MainPage() {
-//   return (
-//     <div className="main-page">
-//       <nav className="navbar">
-//         <div className="logo">🏥 SereneCare+</div>
-//         <ul className="nav-links">
-//           <li>
-//             <Link
-//               to="/main-page"
-//               style={{ color: "white", textDecoration: "none" }}
-//             >
-//                 Home            
-//             </Link>
-            
-//             </li>
-//           <li>
-//             <Link to="/doctors"
-//               style={{ color: "white", textDecoration: "none" }}
-//             >
-//               Book Appointment
-//             </Link>
-//           </li>
-//           <li>
-//             <Link to="/about" style={{ color: "white", textDecoration: "none" }}>About Us</Link>
-  
-//             </li>
-//           <li>
-//             <Link to="/contact" style={{ color: "white", textDecoration: "none" }}>Contact</Link>
-//           </li>
-//         </ul>
-//       </nav>
-
-//       <header className="hero">
-//         <h1>Your Health, Our Priority</h1>
-//         <p>
-//           Book appointments easily and get expert care from our trusted doctors.
-//         </p>
-//         <button className="cta-btn">Book Now</button>
-//       </header>
-
-//       <section className="services">
-//         <div className="card">
-//           <h2>🩺 Book Appointment</h2>
-//           <p>Schedule a meeting with a doctor of your choice.</p>
-//         </div>
-//         <div className="card">
-//           <h2>👨‍⚕️ Find Doctors</h2>
-//           <p>View profiles and specialties of our doctors.</p>
-//         </div>
-//         <div className="card">
-//           <h2>📅 View Schedule</h2>
-//           <p>Check available time slots for consultations.</p>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// }
-
-// export default MainPage;
 import React from "react";
 import "./MainPage.css";
 import { Link, useNavigate } from "react-router-dom";
 
+
 function MainPage() {
   const navigate = useNavigate();
+
+  // Get logged-in user info from sessionStorage
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log("User on main page:", user);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("user"); // clear user info
+    navigate("/first-page"); // redirect to first page
+  };
 
   return (
     <div className="main-page">
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">🏥 SereneCare+</div>
+
         <ul className="nav-links">
           <li>
             <Link to="/main-page" className="nav-link">
@@ -95,6 +43,16 @@ function MainPage() {
             </Link>
           </li>
         </ul>
+
+        {/* User greeting + Logout */}
+        {user && (
+          <div className="user-info">
+            <span>Hello, {user.name}</span>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* HERO SECTION */}
@@ -164,5 +122,6 @@ function MainPage() {
     </div>
   );
 }
+
 
 export default MainPage;

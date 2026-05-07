@@ -14,9 +14,7 @@ function UserLogin() {
 
   const navigate = useNavigate();
 
-  const toggleForm = () => {
-    setIsSignIn(!isSignIn);
-  };
+  const toggleForm = () => setIsSignIn(!isSignIn);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,28 +23,55 @@ function UserLogin() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (isSignIn) {
-      if (
-        formData.email === "patient@example.com" &&
-        formData.password === "1234"
-      ) {
-        console.log("Login successful!");
-        navigate("/main-page");
+    // ✅ Backend endpoint
+    const BASE_URL = "https://serene-care-backend.onrender.com";
+    const url = isSignIn
+  ? `${BASE_URL}/api/login`
+  : `${BASE_URL}/api/register`;
+
+    // Prepare data to match backend field names
+    const payload = isSignIn
+      ? { email: formData.email, password: formData.password }
+      : { name: formData.username, email: formData.email, password: formData.password };
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message);
+        sessionStorage.setItem("user", JSON.stringify(data.user));
+        console.log("✅ User saved to sessionStorage:", data.user);
+        
+        if (isSignIn) {
+          console.log("✅ Login successful:", data);
+          setFormData({ username: "", email: "", password: "" });
+          navigate("/main-page"); // Redirect after login
+        } else {
+          console.log("✅ Signup successful:", data);
+          setIsSignIn(true); // Switch to Sign In view
+          setFormData({ username: "", email: "", password: "" });
+        }
       } else {
-        alert("Invalid email or password");
+        alert(data.message || data.error || "Something went wrong. Please try again.");
       }
-    } else {
-      console.log("Signing up with:", formData);
-      alert("Sign-up successful! Please sign in.");
-      setIsSignIn(true);
+    } catch (err) {
+      console.error("❌ Error:", err);
+      alert("Server error. Please check your connection.");
     }
   };
 
   // 🔙 Back button handler
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.preventDefault();
     navigate("/first-page");
   };
 
@@ -87,8 +112,9 @@ function UserLogin() {
               required
             />
             <button type="submit">{isSignIn ? "Sign In" : "Sign Up"}</button>
+
             {/* 🔙 Back button */}
-            <button className="back-btn" onClick={handleBack}>
+            <button type="button" className="back-btn" onClick={handleBack}>
               Back
             </button>
           </form>

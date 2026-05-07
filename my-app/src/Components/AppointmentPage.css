@@ -132,3 +132,15 @@ body {
 body {
   animation: bgShift 10s ease infinite alternate;
 }
+.back-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
